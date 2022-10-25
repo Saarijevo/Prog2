@@ -1,5 +1,7 @@
 #!/usr/bin/env python3.9
 
+#Included the three fic functions in the class instead of in this document. 
+
 from person import Person
 import matplotlib.pyplot as plt
 import numpy as np
@@ -28,17 +30,19 @@ def main():
     t2_numba = []
     fib2 = np.arange(20,31)
 
-    for i in fib2:
-        f.set(i)
-        t2_py += [f.fib_py()[1]]
-        t2_numba += [f.fib_numba()[1]]
-    plt.plot(fib2, t2_py, 'o-')
-    plt.plot(fib2, t2_numba, 'o-')
-    plt.legend(labels = ['python', 'numba'])
-    plt.savefig('fib2')
+    #for i in fib2:
+    #    f.set(i)
+    #    t2_py += [f.fib_py()[1]]
+    #    t2_numba += [f.fib_numba()[1]]
+    #plt.plot(fib2, t2_py, 'o-')
+    #plt.plot(fib2, t2_numba, 'o-')
+    #plt.legend(labels = ['python', 'numba'])
+    #plt.savefig('fib2')
 
     f.set(47)
     print(f.fib_numba(), 'fib(47) with numba')
     print(f.fib_cpp(), 'fib(47) with c++')
+    #fib cpp gives a very large negative value, while numba gives the actual value for fib(47). This is most likely due to an integer overwflow
+    #in the cpp code. 
 if __name__ == '__main__':
 	main()
